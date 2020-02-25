@@ -20,7 +20,7 @@ GNU General Public License for more details.
 #include "sdk_engapi.h"
 #include "sdk_defines.h"
 
-typedef struct entvars_s
+struct entvars_s
 {
     string_t classname, globalname;
     vec3_t origin, oldorigin, velocity, basevelocity;
@@ -70,14 +70,14 @@ typedef struct entvars_s
     float fuser[4];
     vec3_t vuser[4];
     edict_t *euser[4];
-} entvars_t;
+};
 
 typedef struct link_s
 {
     struct link_s *p, *n;
 } link_t;
 
-typedef struct edict_s
+struct edict_s
 {
     qboolean free;
     int serialnumber;
@@ -87,11 +87,9 @@ typedef struct edict_s
     float freetime;
     void *pvPrivateData;
     entvars_t v;
-} edict_t;
+};
 
-
-
-typedef struct globalvars_s
+struct globalvars_s
 {
     float time, frametime, forceretouch;
     int mapname, startspot;
@@ -107,17 +105,17 @@ typedef struct globalvars_s
     char *pStringBase;
     void *pSaveData;
     vec3_t *landmarkoffset;
-} globalvars_t;
+};
 
-typedef struct keyvalue_s
+struct keyvalue_s
 {
     char *classname;
     char *keyname;
     char *value;
     qboolean handled;
-} keyvalue_t;
+};
 
-typedef struct entity_state_s
+struct entity_state_s
 {
     int entityType, number;
     float msgtime;
@@ -154,7 +152,7 @@ typedef struct entity_state_s
     float fuser[4];
     vec3_t vuser[4];
     edict_t *euser[4];
-} entity_state_t;
+};
 
 #define MAX_PHYSINFO_STRING		256
 typedef struct clientdata_s
@@ -211,7 +209,7 @@ typedef struct clientdata_s
 
 } clientdata_t;
 
-typedef struct traceresult_s
+struct traceresult_s
 {
     qboolean allsolid, startsolid, inopen, inwater;
     float fraction;
@@ -220,16 +218,16 @@ typedef struct traceresult_s
     vec3_t planenormal;
     edict_t *hit;
     int hitgroup;
-} traceresult_t;
+};
 
-typedef struct cvar_s
+struct cvar_s
 {
     char		*name;
     char		*string;
     int		flags;
     float		value;
     struct cvar_s	*next;
-} cvar_t;
+};
 
 typedef struct usercmd_s
 {
